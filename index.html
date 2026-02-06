@@ -2,77 +2,191 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pravin Ganesh | Project Showcase</title>
+  <title>Pravin Ganesh | Project Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    :root {
+      --accent: #2563eb;
+      --accent-soft: #e0e7ff;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 16px;
-      line-height: 1.6;
-      color: #222;
-      background-color: #fff;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.65;
     }
-    h1 {
+
+    /* ---------- HERO ---------- */
+    header {
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #fff;
+      padding: 64px 20px 72px;
       text-align: center;
-      margin-bottom: 8px;
     }
-    .subtitle {
-      text-align: center;
-      color: #555;
-      margin-bottom: 32px;
+
+    header h1 {
+      font-size: 42px;
+      margin: 0 0 10px;
+      letter-spacing: -0.5px;
     }
-    h2 {
-      margin-top: 48px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 6px;
+
+    header .subtitle {
+      font-size: 17px;
+      opacity: 0.9;
     }
+
+    /* ---------- LAYOUT ---------- */
+    main {
+      max-width: 1100px;
+      margin: -48px auto 0;
+      padding: 0 20px 40px;
+    }
+
+    section {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 26px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    /* ---------- ABOUT ---------- */
     .about p {
-      color: #444;
+      max-width: 820px;
+      color: #334155;
     }
+
     .contact {
-      margin-top: 16px;
+      margin-top: 18px;
       font-size: 15px;
     }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ---------- PROJECTS ---------- */
     .project-note {
+      color: var(--text-muted);
       font-size: 14px;
-      color: #666;
-      margin: 12px 0 28px;
+      margin: 16px 0 32px;
+      max-width: 820px;
     }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
     .project {
-      border-left: 4px solid #000;
-      padding-left: 16px;
-      margin: 28px 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: fadeUp 0.6s ease both;
     }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+    }
+
     .project h3 {
       margin: 0;
       font-size: 20px;
     }
+
     .project p {
-      margin: 8px 0 0;
-      color: #555;
+      margin: 10px 0 0;
+      color: #475569;
+      font-size: 15px;
     }
+
+    /* ---------- FOOTER ---------- */
     .note {
       text-align: center;
       font-size: 14px;
-      color: #777;
-      margin: 56px 0 24px;
+      color: var(--text-muted);
+      margin-top: 40px;
     }
+
     footer {
       text-align: center;
       font-size: 13px;
-      color: #999;
-      margin-bottom: 16px;
+      color: var(--text-muted);
+      margin: 30px 0 20px;
+    }
+
+    /* ---------- ANIMATION ---------- */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      section {
+        padding: 28px 22px;
+      }
     }
   </style>
 </head>
+
 <body>
 
+<header>
   <h1>Pravin Ganesh</h1>
   <div class="subtitle">
     Systems Analyst · Business Systems Consultant · Enterprise & AI Solutions
   </div>
+</header>
+
+<main>
 
   <section class="about">
     <h2>About</h2>
@@ -89,13 +203,14 @@
     </p>
 
     <div class="contact">
-      <strong>Contact:</strong>
+      Contact:
       <a href="mailto:pravin.dyl@gmail.com">pravin.dyl@gmail.com</a>
     </div>
   </section>
 
   <section>
     <h2>Developed & Coded Projects</h2>
+
     <div class="project-note">
       The projects listed below were personally designed and developed by me.
       They are independent implementations and not systems delivered or owned
@@ -103,78 +218,60 @@
       organizations.
     </div>
 
-    <div class="project">
-      <h3>Project 1: Internal Infrastructure & Access Management Portal</h3>
-      <p>
-        Developed an internal enterprise website hosted on IIS with a
-        PowerShell-based backend to provide centralized visibility into
-        infrastructure and access management.
-      </p>
-      <p>
-        The solution delivers reporting on Microsoft Teams and Active Directory
-        group access, server inventory, system uptime, patch and hotfix status,
-        and includes standardized SDLC templates and documented processes to
-        support operational consistency and compliance.
-      </p>
-    </div>
+    <div class="projects-grid">
 
-    <div class="project">
-      <h3>Project 2: Character-Based Systems & Access Validation Tool</h3>
-      <p>
-        Built a lightweight, character-based user interface tool using batch
-        scripting to support rapid validation of systems, user, and vendor
-        account information across remote servers.
-      </p>
-      <p>
-        The tool performs checks on vendor and user accounts, Active Directory
-        group membership, server specifications, hardware models, uptime status,
-        active user login sessions, and badge number validation.
-      </p>
-    </div>
+      <div class="project">
+        <h3>Internal Infrastructure & Access Management Portal</h3>
+        <p>Enterprise IIS-hosted portal with PowerShell backend providing visibility into infrastructure, access management, patching, uptime, and compliance reporting.</p>
+      </div>
 
-    <div class="project">
-      <h3>Project 3: AI-Driven Automated Messaging & Notification System</h3>
-      <p>
-        Designed and implemented an automated messaging solution that delivers
-        scheduled, AI-generated positive affirmation messages multiple times per
-        day.
-      </p>
-      <p>
-        The system is configurable through a web-based interface and leverages a
-        Google email account for message delivery.
-      </p>
-    </div>
+      <div class="project">
+        <h3>Character-Based Systems & Access Validation Tool</h3>
+        <p>Batch-scripted, terminal-style tool enabling rapid validation of users, vendors, servers, AD group membership, uptime, and hardware details.</p>
+      </div>
 
-    <div class="project">
-      <h3>Project 4: Flower Classification Using Machine Learning</h3>
-      <p>
-        Completed as part of the Udacity AI Programming with Python Nanodegree,
-        this project involved building a machine learning model to classify
-        flower species based on image data.
-      </p>
-    </div>
+      <div class="project">
+        <h3>AI-Driven Automated Messaging System</h3>
+        <p>Configurable web-based platform delivering scheduled, AI-generated messages via Google email integration.</p>
+      </div>
 
-    <div class="project">
-      <h3>Project 5: Data Science – Data Wrangling and Exploratory Analysis</h3>
-      <p>
-        Developed a data science project centered on collecting, cleaning, and
-        transforming raw datasets into analysis-ready formats.
-      </p>
-    </div>
+      <div class="project">
+        <h3>Flower Classification (Machine Learning)</h3>
+        <p>Udacity Nanodegree project using image-based ML techniques to classify flower species.</p>
+      </div>
 
-    <div class="project">
-      <h3>Project 6: Wellness-Focused Blog Platform</h3>
-      <p>
-        Designed and implemented a blog-based website focused on mindfulness,
-        hypnosis concepts, and Dialectical Behavior Therapy (DBT) skill sets.
-      </p>
-    </div>
+      <div class="project">
+        <h3>Data Science – Wrangling & Exploratory Analysis</h3>
+        <p>End-to-end data collection, cleansing, transformation, and analytical exploration of raw datasets.</p>
+      </div>
 
+      <div class="project">
+        <h3>Wellness-Focused Blog Platform</h3>
+        <p>Content-driven website centered on mindfulness, hypnosis concepts, and DBT skill frameworks.</p>
+      </div>
+
+      <div class="project">
+        <h3>Personal Expense Management System (Purdue)</h3>
+        <p>Academic project focused on tracking, categorizing, and reporting personal financial data to support budgeting decisions.</p>
+      </div>
+
+      <div class="project">
+        <h3>AI Storytelling Using Prompt Engineering (Purdue)</h3>
+        <p>Exploration of prompt engineering strategies using ChatGPT to generate structured, coherent, and controlled narrative content.</p>
+      </div>
+
+    </div>
   </section>
 
   <div class="note">
     Source code for the projects listed on this page is private and not publicly available.
   </div>
 
-  <footer
+</main>
 
+<footer>
+  © 2026 Pravin Ganesh
+</footer>
+
+</body>
+</html>
