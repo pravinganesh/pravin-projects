@@ -5,62 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <style>
-    /* --- Basic Reset --- */
-    body, h1, h2, p, ul, li, a {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      line-height: 1.6;
-      color: #333;
-      background-color: #f5f5f5;
-    }
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
-      background-color: white;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      margin-bottom: 1rem;
-    }
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-    }
-    a.contact-link {
-      color: #2980b9;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a.contact-link:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #2c3e50;
-      color: white;
-    }
+    body, h1, h2, p, ul, li, a { margin:0; padding:0; font-family: Arial, sans-serif; }
+    body { line-height:1.6; color:#333; background-color:#f5f5f5; }
+    header { background-color:#2c3e50; color:white; padding:1rem; text-align:center; }
+    nav a { color:white; margin:0 1rem; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+    section { padding:4rem 2rem; max-width:900px; margin:auto; background-color:white; margin-bottom:2rem; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+    h1, h2 { margin-bottom:1rem; }
+    ul { list-style-type: disc; padding-left:1.5rem; }
+    a.contact-link { color:#2980b9; text-decoration:none; font-weight:bold; }
+    a.contact-link:hover { text-decoration:underline; }
+    footer { text-align:center; padding:1rem; background-color:#2c3e50; color:white; }
+    li { margin-bottom:0.8rem; }
   </style>
 </head>
 <body>
@@ -81,19 +37,19 @@
   </section>
 
   <!-- Projects Section -->
-  <section>
-  <h2>Personal & Independent Projects</h2>
-  <ul>
-    <li>Internal Infrastructure & Access Management Portal – web site hosting on IIS with PowerShell run reports as windows task scheduler, hosted as static html, css, javascript</li>
-    <li>Character-Based Systems & Access Validation Tool – Terminal-style validation utility - batch scripting Tool</li>
-    <li>AI-Driven Automated Messaging Platform – Web-based AI scheduled messaging system - python developed site</li>
-    <li>Flower Classification (ML) – Image-based machine learning model - python project - udacity nano degree</li>
-    <li>Data Science Projects – Data wrangling and exploratory analysis - python project - udacity nanop degree </li>
-    <li>Wellness & Mindfulness Blog Platform – DBT-focused content system - IIS, html, css</li>
-    <li>Personal Expense Management System (Purdue) - python project</li>
-    <li>AI Storytelling Using chatgpt (Purdue) - prompt engineering project</li>
-  </ul>
-</section>
+  <section id="projects">
+    <h2>Personal & Independent Projects</h2>
+    <ul>
+      <li><strong>Internal Infrastructure & Access Management Portal:</strong> Web portal hosted on IIS, automating reporting with PowerShell and scheduled Windows tasks; frontend built with HTML, CSS, JavaScript.</li>
+      <li><strong>Character-Based Systems & Access Validation Tool:</strong> Terminal-style batch scripting utility for validating system access.</li>
+      <li><strong>AI-Driven Automated Messaging Platform:</strong> Python-based web platform for scheduled AI-powered messaging.</li>
+      <li><strong>Flower Classification (Machine Learning):</strong> Image classification model using Python for Udacity Nanodegree project.</li>
+      <li><strong>Data Science Projects:</strong> Data wrangling, cleaning, and exploratory analysis using Python for Udacity Nanodegree.</li>
+      <li><strong>Wellness & Mindfulness Blog Platform:</strong> Database-driven blog system hosted on IIS; front-end built with HTML and CSS.</li>
+      <li><strong>Personal Expense Management System (Purdue):</strong> Python project for tracking and managing personal expenses.</li>
+      <li><strong>AI Storytelling Using ChatGPT (Purdue):</strong> Prompt engineering project to generate AI-powered stories.</li>
+    </ul>
+  </section>
 
   <!-- Contact Section -->
   <section id="contact">
@@ -103,7 +59,7 @@
   </section>
 
   <footer>
-    &copy; 2026 Your Name
+    &copy; 2026 Pravin Ganesh
   </footer>
 
 </body>
