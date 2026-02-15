@@ -41,11 +41,12 @@
       padding-bottom: 0.2rem;
     }
     h3 {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
+      font-size: 1.3rem;
       color: #1f2a38;
     }
 
-    /* Card Style Lists */
+    /* Card Style */
     .card {
       background-color: #fff;
       padding: 1.5rem;
@@ -58,17 +59,40 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 14px rgba(0,0,0,0.12);
     }
-    .card ul {
-      padding-left: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    .card li {
-      margin-bottom: 0.5rem;
-    }
     .highlight {
       font-weight: bold;
       color: #4fc3f7;
     }
+
+    /* Collapsible Sections */
+    .collapsible {
+      background-color: #1f2a38;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.8rem 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      transition: background-color 0.3s;
+    }
+    .collapsible:hover {
+      background-color: #4fc3f7;
+      color: #1f2a38;
+    }
+    .content {
+      padding: 0 1rem;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .content ul { padding-left: 1.5rem; margin-top: 0.5rem; }
+    .content li { margin-bottom: 0.5rem; }
 
     /* Footer */
     footer {
@@ -98,8 +122,8 @@
   <section>
     <h2>Professional Summary</h2>
     <div class="card">
-      <p>Systems Analyst with over <span class="highlight">25 years of IT experience</span> across healthcare, finance, government, aerospace, and large enterprise environments. Experienced in gathering requirements, designing solutions, and delivering technology platforms supporting complex business needs.</p>
-      <p>Deep expertise across <span class="highlight">SaaS, on-premise, web-based, client/server, and enterprise platforms</span>, with strong stakeholder, vendor, and executive relationship management skills.</p>
+      <p>Systems Analyst with over <span class="highlight">25 years of IT experience</span> across healthcare, finance, government, aerospace, and large enterprise environments. Skilled in gathering requirements, designing solutions, and delivering technology platforms supporting complex business needs.</p>
+      <p>Expertise spans <span class="highlight">SaaS, on-premise, web-based, client/server, and enterprise platforms</span>, with strong stakeholder, vendor, and executive relationship management skills.</p>
     </div>
   </section>
 
@@ -129,11 +153,13 @@
     </div>
   </section>
 
-  <!-- Projects & Applications -->
+  <!-- Collapsible Projects & Applications -->
   <section>
     <h2>Projects & Applications by Industry</h2>
-    <div class="card">
-      <h3>Healthcare – Enterprise, Clinical & Operations</h3>
+
+    <!-- Healthcare – Enterprise, Clinical & Operations -->
+    <button class="collapsible">Healthcare – Enterprise, Clinical & Operations</button>
+    <div class="content">
       <ul>
         <li>Enterprise Environment & Operations – SSO, AD/Entra ID, patching, vulnerability remediation, Epic & Infor integration</li>
         <li>Epic & Infor – Integration, workflow documentation, operational support</li>
@@ -143,8 +169,11 @@
         <li>NaviCare Nurse Call – Bedside alert workflows and configuration</li>
         <li>Variance & Event Reporting System – Reporting workflows and Epic integration</li>
       </ul>
+    </div>
 
-      <h3>Healthcare – Public Safety & Security</h3>
+    <!-- Healthcare – Public Safety & Security -->
+    <button class="collapsible">Healthcare – Public Safety & Security</button>
+    <div class="content">
       <ul>
         <li>Alertus – Enterprise alerting, SOC integration</li>
         <li>Everbridge – Unified critical communications, AD/Entra integration</li>
@@ -156,7 +185,62 @@
         <li>IrisID – Iris recognition system with Active Directory integration</li>
         <li>Enterprise Badge Access Systems – SSO testing and access control</li>
       </ul>
-      <!-- You can continue other industries similarly -->
+    </div>
+
+    <!-- Healthcare – Facilities & Business Operations -->
+    <button class="collapsible">Healthcare – Facilities & Business Operations</button>
+    <div class="content">
+      <ul>
+        <li>Apogee (Siemens Insight) – Server/workstation deployment and integration</li>
+        <li>FAST-PASS – Visitor management and ID scanning workflows</li>
+        <li>GeoSense – Asset tracking configuration and server setup</li>
+        <li>MyVIE – Predictive maintenance system integration testing</li>
+        <li>Compass MyDining – Dining workflow setup and Entra ID integration</li>
+        <li>NCR Counterpoint – POS configuration and inventory integration</li>
+      </ul>
+    </div>
+
+    <!-- Healthcare – Legal & Compliance -->
+    <button class="collapsible">Healthcare – Legal & Compliance</button>
+    <div class="content">
+      <ul>
+        <li>AIA Contracts – Generic Application support</li>
+        <li>Legal Tracker – Matter management and SSO integration</li>
+        <li>Policy & Procedure Manager – Workflow upgrades and documentation</li>
+        <li>Protenus – HIPAA privacy monitoring and incident documentation</li>
+        <li>Teammate Audit Systems – Compliance tracking and audit workflows</li>
+      </ul>
+    </div>
+
+    <!-- Government & Public Sector -->
+    <button class="collapsible">Government & Public Sector</button>
+    <div class="content">
+      <ul>
+        <li>Initial Claims Reengineering – State unemployment system migration (mainframe to web)</li>
+        <li>APS System Rewrite – Travel agency processing system redesign</li>
+        <li>ASTEP – Asset servicing enhancement and data warehouse project</li>
+      </ul>
+    </div>
+
+    <!-- Financial Services & Insurance -->
+    <button class="collapsible">Financial Services & Insurance</button>
+    <div class="content">
+      <ul>
+        <li>Bank of America CIS – Legacy system retirement and platform migration</li>
+        <li>Fannie Mae Servicer & Investor Reporting – Data integrity and reporting</li>
+        <li>Loan Prospector E-Commerce – Automated underwriting enhancements</li>
+        <li>Freddie Mac / Fannie Mae – UAT, underwriting and servicing platforms</li>
+        <li>Instant Merge 2000 – Credit report integration (Equifax, TransUnion, Experian)</li>
+        <li>ATLAS Claims System – Insurance claims platform rewrite using Guidewire</li>
+      </ul>
+    </div>
+
+    <!-- Aerospace -->
+    <button class="collapsible">Aerospace</button>
+    <div class="content">
+      <ul>
+        <li>Hughes Network Systems – Integration Testing and Design Review coordinator</li>
+      </ul>
     </div>
   </section>
 
@@ -178,7 +262,7 @@
     </div>
   </section>
 
-  <!-- Certifications -->
+  <!-- Licenses & Certifications -->
   <section>
     <h2>Licenses & Certifications</h2>
     <div class="card">
@@ -199,6 +283,17 @@
   <footer>
     &copy; 2026 Pravin Ganesh
   </footer>
+
+  <script>
+    const coll = document.querySelectorAll(".collapsible");
+    coll.forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
 
 </body>
 </html>
