@@ -3,107 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pravin Ganesh | Portfolio</title>
+  <title>My Portfolio</title>
   <style>
-    /* Base Styles */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f2f5;
-      color: #333;
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-
-    /* Header */
-    header {
-      background-color: #1f2a38;
-      color: #fff;
-      padding: 1.5rem 2rem;
-      text-align: center;
-    }
-    header h1 {
-      margin-bottom: 0.5rem;
-      font-size: 2.2rem;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #4fc3f7;
-    }
-
-    /* Sections */
-    section {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 2rem;
-    }
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
-      color: #1f2a38;
-      border-bottom: 2px solid #4fc3f7;
-      display: inline-block;
-      padding-bottom: 0.2rem;
-    }
-
-    /* Project Cards */
-    .project-category {
-      margin-top: 2rem;
-    }
-    .project-card {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-    }
-    .project-card strong {
-      color: #1f2a38;
-    }
-    .project-card p {
-      margin-top: 0.5rem;
-    }
-
-    /* Contact Links */
-    .contact-link {
-      color: #4fc3f7;
-      font-weight: bold;
-    }
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1.5rem 0;
-      background-color: #1f2a38;
-      color: #fff;
-      margin-top: 2rem;
-    }
-
-    /* Responsive */
-    @media(max-width: 768px){
-      header h1 { font-size: 1.8rem; }
-      nav a { margin: 0 0.5rem; display: inline-block; margin-bottom: 0.5rem; }
-      section { padding: 1.5rem 1rem; }
-    }
+    body, h1, h2, p, ul, li, a { margin:0; padding:0; font-family: Arial, sans-serif; }
+    body { line-height:1.6; color:#333; background-color:#f5f5f5; }
+    header { background-color:#2c3e50; color:white; padding:1rem; text-align:center; }
+    nav a { color:white; margin:0 1rem; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+    section { padding:4rem 2rem; max-width:900px; margin:auto; background-color:white; margin-bottom:2rem; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    h1, h2 { margin-bottom:1rem; }
+    ul { list-style-type: disc; padding-left:1.5rem; }
+    a.contact-link { color:#2980b9; text-decoration:none; font-weight:bold; }
+    a.contact-link:hover { text-decoration:underline; }
+    footer { text-align:center; padding:1rem; background-color:#2c3e50; color:white; }
+    li { margin-bottom:0.8rem; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Pravin Ganesh</h1>
+    <h1>My Portfolio</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -114,67 +33,76 @@
   <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Systems Analyst with 25 years of experience in end-to-end lifecycle ownership, enterprise solutions, and AI-driven applications. Explore my detailed bio <a class="contact-link" href="about.html">here</a>.</p>
+    <p>Systems Analyst · Business Systems Consultant · Enterprise & AI Solutions - Check out my detailed bio <a href="about.html">here</a>.</p>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
+<section id="projects">
+  <h2>Personal & Independent Projects</h2>
 
-    <div class="project-category">
-      <h3>AI / Machine Learning</h3>
+  <!-- AI / Machine Learning Projects -->
+  <h3>AI / Machine Learning Projects</h3>
+  <ul>
+    <li>
+      <strong>Flower Classification – Deep Learning (Udacity Nanodegree):</strong>
+      Built a deep learning image classifier capable of identifying 102 flower species using transfer learning with a pre-trained VGG network and custom classifier layers. Implemented full machine learning workflows including data preprocessing, training, validation, testing, and inference. Achieved 87%+ validation accuracy and designed the model for potential deployment in real-world applications such as mobile-based image recognition.
+    </li>
 
-      <div class="project-card">
-        <strong>Flower Classification – Deep Learning (Udacity Nanodegree):</strong>
-        <p>Designed a deep learning classifier for 102 flower species using transfer learning (VGG). Managed full ML lifecycle, achieving 87%+ validation accuracy, with potential deployment for mobile-based image recognition.</p>
-      </div>
+    <li>
+      <strong>Data Science & Data Wrangling Projects (Udacity Nanodegree):</strong>
+      Completed multiple Python-based projects focused on cleaning, transforming, and analyzing complex datasets. Conducted exploratory data analysis (EDA), resolved missing or inconsistent data issues, and prepared datasets for modeling and visualization. Generated actionable insights using industry-standard data tools.
+    </li>
 
-      <div class="project-card">
-        <strong>Data Science & Data Wrangling Projects (Udacity Nanodegree):</strong>
-        <p>Cleaned, transformed, and analyzed complex datasets using Python. Conducted exploratory data analysis, resolved inconsistencies, and produced actionable insights with industry-standard tools.</p>
-      </div>
+    <li>
+      <strong>AI-Driven Automated Messaging Platform:</strong>
+      Developed a Python-based web application that generates AI-powered messages and automates scheduled delivery via Gmail integration. Demonstrated practical implementation of AI APIs, workflow automation, and web-based scheduling systems.
+    </li>
 
-      <div class="project-card">
-        <strong>AI-Driven Automated Messaging Platform:</strong>
-        <p>Developed a Python-based web app generating AI-powered messages with Gmail integration. Implemented workflow automation and web-based scheduling systems.</p>
-      </div>
+    <li>
+      <strong>AI Interactive Storytelling Platform (Purdue):</strong>
+      Designed and implemented an AI-assisted storytelling system leveraging ChatGPT for dynamic narrative generation. Users collaboratively influence plot direction and character decisions while AI generates context-aware responses in real time. Emphasized structured prompt design, iterative refinement, and branching story paths to create engaging multi-outcome experiences.
+    </li>
+	<li>
+  <strong>AI-Powered HR Assistant for Nestlé (Course-End Project):</strong>
+  Developed a conversational AI chatbot to improve the operational efficiency of Nestlé’s Human Resources department. 
+  Leveraged Retrieval-Augmented Generation (RAG) with OpenAI’s GPT-3.5 Turbo model to answer questions strictly based on Nestlé’s HR policy document. 
+  Implemented full workflow including PDF document loading, text chunking, vector embeddings stored in ChromaDB, and a user-friendly Gradio interface. 
+  Ensured accuracy and reliability with structured prompts, deterministic model responses, and fallback messaging when information is unavailable. 
+  The system enables HR staff to quickly access policy information, demonstrating practical applications of NLP, vector databases, and conversational AI deployment.
+   </li>
+	
+  </ul>
 
-      <div class="project-card">
-        <strong>AI Interactive Storytelling Platform (Purdue):</strong>
-        <p>Architected an AI-assisted storytelling system using ChatGPT, enabling collaborative plot influence and branching narratives with real-time context-aware responses.</p>
-      </div>
-    </div>
+  <!-- Non-AI / Software & Web Projects -->
+  <h3>Non-AI / Software & Web Projects</h3>
+  <ul>
+    <li>
+      <strong>Internal Infrastructure & Access Management Portal:</strong>
+      Developed and deployed an IIS-hosted enterprise web portal centralizing vulnerability reporting (ServiceNow), Teams/Active Directory access management, server uptime tracking, hotfix monitoring, SDLC documentation, and product metrics. Automated backend processes using PowerShell and Windows Task Scheduler.
+    </li>
 
-    <div class="project-category">
-      <h3>Software & Web Projects</h3>
+    <li>
+      <strong>Systems & Access Validation Utility:</strong>
+      Created a terminal-based batch tool to validate vendor and user access across enterprise servers. Automated checks for server specifications, uptime, hardware configuration, logged-in users, Active Directory group memberships, and credential verification.
+    </li>
 
-      <div class="project-card">
-        <strong>Internal Infrastructure & Access Management Portal:</strong>
-        <p>Developed an IIS-hosted enterprise portal centralizing vulnerability reporting, access management, server monitoring, SDLC documentation, and metrics. Automated backend processes with PowerShell and Windows Task Scheduler.</p>
-      </div>
+    <li>
+      <strong>Wellness & Mindfulness Blog Platform:</strong>
+      Built a DBT-focused content management platform hosted on IIS, featuring structured content organization and custom frontend styling for accessibility and clarity.
+    </li>
 
-      <div class="project-card">
-        <strong>Systems & Access Validation Utility:</strong>
-        <p>Built a terminal-based batch tool validating vendor/user access across enterprise servers, including server specs, hardware config, Active Directory membership, and credential checks.</p>
-      </div>
-
-      <div class="project-card">
-        <strong>Wellness & Mindfulness Blog Platform:</strong>
-        <p>Created a DBT-focused content management system on IIS with structured organization and accessibility-focused frontend design.</p>
-      </div>
-
-      <div class="project-card">
-        <strong>Personal Expense Management System (Purdue):</strong>
-        <p>Python-based finance tracker for logging expenses, budgeting, and reviewing historical data. Included persistent file storage and user-friendly CLI interface.</p>
-      </div>
-    </div>
-  </section>
+    <li>
+      <strong>Personal Expense Management System (Purdue):</strong>
+      Developed a Python-based personal finance tracker enabling users to log expenses, categorize spending, set monthly budgets, and review historical data. Implemented persistent file storage and a user-friendly, menu-driven command-line interface.
+    </li>
+  </ul>
+</section>
 
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>Email: <a class="contact-link" href="mailto:pravin.dyl@gmail.com">pravin.dyl@gmail.com</a></p>
-    <p>Connect: <a class="contact-link" href="https://www.linkedin.com/in/pravin-ganesh-035a82380/" target="_blank">LinkedIn</a> / <a class="contact-link" href="https://pravinganesh.github.io/pravin-projects/" target="_blank">GitHub</a></p>
+    <p>You can reach me at <a class="contact-link" href="mailto:pravin.dyl@gmail.com">pravin.dyl@gmail.com</a></p>
+    <p>Or connect on <a class="contact-link" href="https://www.linkedin.com/in/pravin-ganesh-035a82380/" target="_blank">LinkedIn</a> / <a class="contact-link" href="https://pravinganesh.github.io/pravin-projects/" target="_blank">GitHub</a></p>
   </section>
 
   <footer>
