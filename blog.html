@@ -20,9 +20,8 @@ margin-bottom:25px;
 }
 
 .routine-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
+column-count:3;
+column-gap:20px;
 }
 
 .routine-card{
@@ -30,6 +29,8 @@ background:white;
 padding:18px;
 border-radius:12px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
+margin-bottom:20px;
+break-inside:avoid;
 }
 
 .routine-card h3{
@@ -39,6 +40,18 @@ margin-top:0;
 .routine-card ul{
 padding-left:18px;
 line-height:1.6;
+}
+
+@media (max-width:1000px){
+.routine-grid{
+column-count:2;
+}
+}
+
+@media (max-width:600px){
+.routine-grid{
+column-count:1;
+}
 }
     /* ==== Base / Script Styles ==== */
     body{
@@ -321,7 +334,7 @@ I open my site and follow my daily routines with patience and awareness.
 </div>
 
 <div class="routine-card">
-<h3>Practice notebook mindfulness </h3>
+<h3>Practice notebook mindfulness 1 </h3>
 <ul>
 
 <li>open notebook and type slowly and practice PCNN real time </li>
@@ -330,6 +343,15 @@ I open my site and follow my daily routines with patience and awareness.
 <li>im observing, i feel like standing and move around and clear whiteboard. </li>
 <li>I notice someone talking fast so she is going fast.</li>
 <li>i'm feeling the urge to speak. im feeling the urge to move. </li>
+
+</ul>
+</div>
+
+<div class="routine-card">
+<h3>Practice notebook mindfulness 2 </h3>
+<ul>
+
+
 <li>i'm feeling the urge to speak in group settings. i'm feeling being anxious.</li>
 <li>i needed the urge to jump in. let others speak, observe other people and </li>
 <li>observe what im feeling. urge to move ? observe me from outside. </li>
@@ -337,6 +359,9 @@ I open my site and follow my daily routines with patience and awareness.
 <li>this gives a real time pause between thoughts and action </li>
 </ul>
 </div>
+
+
+
 <div class="routine-card">
 <h3>Mindful Daily Awareness Practice - part 1</h3>
 <ul>
@@ -359,13 +384,20 @@ I open my site and follow my daily routines with patience and awareness.
 
 <li>When writing or reading, move slowly. Observe the monitor. Breathe, feel the body, stretch gently, and scan for tension.</li>
 
+
+</ul>
+</div>
+
+<div class="routine-card">
+<h3>Mindful Daily Awareness Practice - part 3</h3>
+<ul>
+
+
 <li>Before bed, fix the bed slowly. Take 5–10 second breaths. While cooking, use breathing instead of a timer (for example: tortilla 10 seconds, flip for 5 seconds).</li>
 
 <li>Type each word slowly and take a breath between thoughts.</li>
 </ul>
 </div>
-
-
 
 </div>
 
