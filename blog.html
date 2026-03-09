@@ -1,226 +1,897 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog with Edit and Delete</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Optional: Add a stylesheet -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        .content {
-            padding: 20px;
-        }
-        .blog-entry-form {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .blog-entry-form input, .blog-entry-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .blog-entry-form button {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .blog-entry-form button:hover {
-            background-color: #555;
-        }
-        .blog-posts {
-            list-style-type: none;
-            padding: 0;
-        }
-        .blog-post {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .blog-post h3 {
-            margin-top: 0;
-        }
-        .blog-post p {
-            color: #555;
-        }
-        .timestamp {
-            font-size: 0.9em;
-            color: #888;
-            margin-top: 10px;
-        }
-        .edit-btn, .delete-btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 5px;
-        }
-        .edit-btn:hover {
-            background-color: #45a049;
-        }
-        .delete-btn {
-            background-color: #f44336;
-        }
-        .delete-btn:hover {
-            background-color: #d32f2f;
-        }
-		nav {
-            background-color: #444;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Blog + Values & Coping Skills</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  
+  .routine-container{
+max-width:1100px;
+margin:auto;
+padding:30px 20px;
+}
 
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            padding: 14px 20px;
-            text-align: center;
-            text-decoration: none;
-        }
+.routine-intro{
+font-size:16px;
+color:#444;
+margin-bottom:25px;
+}
 
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-    </style>
+.routine-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.routine-card{
+background:white;
+padding:18px;
+border-radius:12px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.routine-card h3{
+margin-top:0;
+}
+
+.routine-card ul{
+padding-left:18px;
+line-height:1.6;
+}
+    /* ==== Base / Script Styles ==== */
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      margin:0;
+      padding:0;
+      background-color:#f4f4f4;
+    }
+    header{
+      background-color:#333;
+      color:#fff;
+      padding:15px;
+      text-align:center;
+    }
+    .content{
+      padding:20px;
+    }
+    .blog-text p{
+      color:#555;
+      line-height:1.6;
+    }
+
+    /* ==== Values & Coping Styles (namespaced vc- to avoid conflicts) ==== */
+    :root{
+      --vc-bg:#0f172a;
+      --vc-panel:#111827;
+      --vc-muted:#94a3b8;
+      --vc-text:#e5e7eb;
+      --vc-accent:#38bdf8;
+      --vc-chip:#1f2937;
+      --vc-border:#1f2937;
+      --vc-card:#0b1222;
+    }
+    .vc-surface{
+      background:linear-gradient(180deg,var(--vc-bg),#0b1222 60%);
+      color:var(--vc-text);
+    }
+    .vc-wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:24px;
+    }
+    .vc-header{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:12px;
+    }
+    .vc-h1{
+      font-size:clamp(22px,3.2vw,36px);
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .vc-sub{
+      color:var(--vc-muted);
+      font-size:.95rem;
+    }
+    .vc-toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin:16px 0 24px;
+    }
+    .vc-search{
+      flex:1;
+      min-width:240px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:var(--vc-panel);
+      border:1px solid var(--vc-border);
+      border-radius:12px;
+      padding:10px 12px;
+    }
+    .vc-search input{
+      flex:1;
+      background:transparent;
+      border:0;
+      color:var(--vc-text);
+      outline:none;
+      font-size:1rem;
+    }
+    .vc-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .vc-chip{
+      cursor:pointer;
+      border:1px solid var(--vc-border);
+      background:var(--vc-chip);
+      color:var(--vc-text);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.9rem;
+      user-select:none;
+    }
+    .vc-chip.vc-active{
+      border-color:var(--vc-accent);
+      box-shadow:0 0 0 2px rgba(56,189,248,.2);
+    }
+    .vc-divider{
+      height:1px;
+      background:var(--vc-border);
+      margin:24px 0;
+    }
+    .vc-grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+    .vc-card{
+      background:rgba(15,23,42,.9);
+      border:1px solid var(--vc-border);
+      border-radius:16px;
+      padding:18px;
+    }
+    .vc-card h3{
+      margin:0 0 8px;
+      font-size:1.05rem;
+    }
+    .vc-card p{
+      margin:0 0 8px;
+      color:var(--vc-muted);
+    }
+    .vc-list{
+      margin:8px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+    }
+    .vc-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      background:var(--vc-card);
+      border:1px solid var(--vc-border);
+      border-radius:12px;
+      padding:10px;
+    }
+    .vc-badge{
+      font-size:.72rem;
+      padding:4px 8px;
+      border-radius:999px;
+      background:#0f766e33;
+      border:1px solid #0f766e66;
+      color:#86efac;
+      white-space:nowrap;
+    }
+    .vc-values{
+      display:grid;
+      gap:12px;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      margin:12px 0 24px;
+    }
+    .vc-value{
+      background:var(--vc-panel);
+      border:1px solid var(--vc-border);
+      border-radius:16px;
+      padding:16px;
+    }
+    .vc-value h2{
+      margin:0 0 6px;
+      font-size:1.05rem;
+    }
+    .vc-value small{
+      color:var(--vc-muted);
+    }
+    .vc-foot{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      color:var(--vc-muted);
+      font-size:.9rem;
+      margin-top:14px;
+    }
+
+    @media print{
+      .vc-surface{
+        background:#fff;
+        color:#111;
+      }
+      .vc-card,.vc-value{
+        background:#fff;
+        border-color:#ddd;
+      }
+      .vc-toolbar,
+      .vc-foot .vc-actions{
+        display:none!important;
+      }
+      a{
+        color:#0366d6;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- ==== Hypnotic / Relaxation Script ==== -->
+  <header>
+    <h1>Welcome to My Blog</h1>
+    <p>Sharing thoughts, experiences, and insights</p>
+  </header>
 
-<!-- Header Section -->
-    <header>
-        <h1>Welcome to My Blog</h1>
-        <p>Sharing thoughts, experiences, and insights</p>
-    </header>
-
-    <!-- Navigation Menu -->
-    <nav>
-        <a href="http://daddyscomputer/">Home</a>
-        <a href="http://daddyscomputer/mindfulness.htm"">Mindfulness</a>
-        <a href="http://daddyscomputer/cards.html">Cards</a>
-        <a href="http://daddyscomputer/tts.html">Text to Speech</a>
-	 </nav>
-
-<header>
+  <header>
     <h1>My Blog</h1>
-</header>
+  </header>
 
-<div class="content">
-    <section class="blog-entry-form">
-        <h2>Create a New Post</h2>
-        <form id="blogForm">
-            <input type="text" id="blogTitle" placeholder="Blog Title" required>
-            <textarea id="blogContent" rows="5" placeholder="Write your blog here..." required></textarea>
-            <button type="submit">Post Blog</button>
-        </form>
-    </section>
+<div class="routine-container">
 
-    <section>
-        <h2>Recent Posts</h2>
-        <ul class="blog-posts" id="blogPosts">
-            <!-- Blog posts will be listed here -->
-        </ul>
-    </section>
+<h2>🌱 Slow Living Routine</h2>
+
+<p class="routine-intro">
+Today I’ll do everything slowly like the movie <strong>Zootopia</strong>.
+I open my site and follow my daily routines with patience and awareness.
+</p>
+
+<div class="routine-grid">
+
+<div class="routine-card">
+<h3>Weekday Routine</h3>
+<ul>
+<li>P-CNN – Pause several times a day (even 5-minute resets count)</li>
+<li>Be curious about thoughts, body sensations, and feelings</li>
+<li>Name feelings and notice where the body feels tight or shallow</li>
+<li>Use ear muffs and white noise</li>
+<li>No mic, no volume, control microphone levels</li>
+<li>Practice typing slowly and deliberately</li>
+<li>Open a blank notebook, type what you want to say in meeting but dont say do PCNN</li>
+<li>Use whiteboard for random thoughts and to-do lists</li>
+</ul>
 </div>
 
+<div class="routine-card">
+<h3>EOD Transition Ritual</h3>
+<ul>
+<li>10 minutes bicycle</li>
+<li>Qigong</li>
+<li>Shower</li>
+<li>Dinner with audiobook</li>
+<li><strong>No music</strong></li>
+</ul>
+</div>
+
+<div class="routine-card">
+<h3>Before Bed</h3>
+<ul>
+<li>Melatonin (if needed)</li>
+<li>Legs up the wall – 30 minutes</li>
+<li>Restorative yoga</li>
+</ul>
+</div>
+
+<div class="routine-card">
+<h3>Weekend Morning</h3>
+<ul>
+<li>Write to-do lists</li>
+<li>Write random thoughts and demands on whiteboard</li>
+<li>Set alarm for 9:45am (Purdue day)</li>
+<li>Turn laptop on with no volume</li>
+<li>Drink coffee</li>
+<li>Eat steak, eggs, rice, cottage cheese, salad</li>
+<li>Play Fortnite</li>
+<li>Wear ear mask and legs up for 30 minutes</li>
+</ul>
+</div>
+
+<div class="routine-card">
+<h3>Weekend Evening</h3>
+<ul>
+<li>Saturday Qigong class</li>
+<li>Read Kindle</li>
+<li>Wear ear mask and legs up for 30 minutes</li>
+</ul>
+</div>
+
+</div>
+
+<hr>
+
+<div class="routine-card">
+<h3>Practice notebook mindfulness - example, open notebook and type slowly and practice PCNN real time. Bring pause between thoughts and action</h3>
+<ul>
+<li>im observing, i feel like standing and move around and clear whiteboard. </li>
+<li>Boss talks fast so she is going fast.</li>
+<li>i'm feeling the urge to speak. im feeling the urge to move. </li>
+<li>i'm feeling the urge to speak in the meeting. i'm feeling being anxious.</li>
+<li>i needed the urge to jump in. let others speak, observe other people and </li>
+<li>observe what im feeling. urge to move ? observe me from outside. </li>
+<li>did i take deep breaths ? is my chest, neck and shoulders tight. </li>
+<li>this gives a real time pause between thoughts and action </li>
+</ul>
+</div>
+
+</div>
+
+<hr>
+
+
+</div>
+  <div class="content">
+    <div class="blog-text">
+      <p>Imagination is the key for relaxation. I allow the noise of my keyboard to soothe my mind and body while I type slowly and deliberately. Each word I write, every keyboard sound I make, Every click sound from the mouse, I feel more relaxed and at peace.</p>
+      <p>Moment by Moment, my mind is becoming as clear as the surface of a calm lake, I can see the lake, I can see the reflection of me in the lake. I'm calm, peaceful, joyful and content like I eat a good meal and just relaxing.I rub my belly and give thanks for the work of digesting the food, I yawn. I'm calm and peaceful.</p>
+      <p>As my mind clears, I use my imagination to relax more deeply while I write this blog. I imagine I'm on a vacation, sitting on a comfortable chair on a beautiful beach as I write this blog. I see I'm surrounded by the golden sand, hear the sound of the waves as they crash on the shore...</p>
+      <p>I type ... to remind that I have to pause and breathe three times ... I notice the bright sun and the breeze wash over my body. Each time I feel the breeze, I'm feeling more relaxed ... I notice the warm sun on my skin. I say thank you sun and take a deep breath ...</p>
+      <p>I embrace the warmth of the sun, feeling calmer and more relaxed. I feel my eyes relaxed and heavy; I notice that it's hard for me to keep and have my eyes open. I take 3 deep breaths ...</p>
+    <p> I pace slowly, talk slowly, pause, notice, name and be curious, I love myself, I love my body, I take care of myself, I'll do some gentle yoga, I take note of any discomfort in the body and relax that body, I remind myself to eat full meal, I dont give power to other peoples emotions or give control to others</p>
+	
+	</div>
+  </div>
+
+<div class="hypnosis-container">
+
+<!-- Master Induction -->
+<div class="hypnosis-block">
+  <button class="hypnosis-toggle">🌀 Master Induction — Deep Self-Hypnosis</button>
+
+  <div class="hypnosis-content">
+    <p>
+      Feeling a sense of privacy and comfort, I allow the sound of my own voice
+      to soothe my mind and body, while I speak slowly and softly. My body is
+      slowing down as though everything is moving in slow motion.<br><br>
+
+      With every word I read and every sound I utter, I feel more relaxed and at
+      peace. Moment by moment, my mind is becoming as clear as the surface of a
+      calm and quiet mountain lake.<br><br>
+
+      As my mind clears, I use my imagination to relax more deeply while I read.
+      I imagine that I am sitting on a comfortable chair on a beautiful beach.
+      With my peripheral vision I see the golden sand that surrounds me… and the
+      waves as they crash on the shore. I hear the gentle and rhythmic sounds they
+      make.<br><br>
+
+      I feel a moist sea breeze waft over my body. I notice the warm sun on my
+      skin. I feel its golden touch on my scalp, allowing me to let go of any
+      excess tension there. All of my thoughts seem to quiet down now as I
+      concentrate my attention on the sun’s warmth on my face… on my cheeks… on
+      my ears… and around my jaw.<br><br>
+
+      The healing light seems to caress my neck and warm my throat, allowing the
+      words to flow easily and effortlessly from my mouth. It feels as though
+      hundreds of tiny fingers of light are massaging my shoulders and upper back.
+      Waves of warmth and relaxation cascade down… down my arms… and out through
+      my fingers.<br><br>
+
+      I mentally scan my hips, pelvis, and buttocks, and let any tension or
+      anxiety there be gently washed away by a stream of light. I become aware of
+      my legs now… they are almost aglow as sunlight floods down through them.
+      My legs feel deeply relaxed. Even my feet and toes feel warm and
+      comfortable… warm and comfortable now.<br><br>
+
+      As I bask in the glorious sun, I imagine closing my eyes as I prepare to
+      hypnotize myself. I draw three slow, deep breaths…<br><br>
+
+      For a moment I notice a soft glow of orange light behind my closed eyelids.
+      That light gently fades into a comforting darkness as I draw my attention
+      inward… inward… toward the center of my mind.<br><br>
+
+      I imagine that I am approaching a beautiful, tall, modern building. I walk
+      through the revolving door and step into a peaceful lobby. Inside stands a
+      strong security guard who recognizes me as the owner of the building. The
+      guard works for me and keeps me safe. I nod in approval and move toward the
+      elevator.<br><br>
+
+      I see my reflection in the mirror-like surface of the elevator doors. I
+      look relaxed, calm, and sure of myself. I press the down arrow. The doors
+      open and I step into a spacious, luxurious elevator. I press the number
+      ten, and the doors close gently as the elevator begins to descend.<br><br>
+
+      I watch the numbers above the door change… and with each number I drift
+      deeper…<br><br>
+
+      One… relaxing deeper.<br>
+      Two… drifting down beneath the surface.<br>
+      Three… deeper still.<br>
+      Four… calm and safe.<br>
+      Five… halfway down, floating peacefully.<br>
+      Six… deeper and quieter.<br>
+      Seven… tranquil and relaxed.<br>
+      Eight… safe and centered.<br>
+      Nine… allowing hypnosis easily now.<br>
+      Ten… the elevator comes to a gentle stop. I have arrived. I am now
+      hypnotized.<br><br>
+
+      The doors open into a warm, comfortable reading room. A fire crackles
+      softly in the fireplace. I sit in a comfortable chair and pick up a book
+      titled <em>Instant Self-Hypnosis</em>.<br><br>
+
+      The words speak directly to me:<br><br>
+
+      <em>
+        “You are now hypnotized with your eyes open. Every time you read an
+        induction from this book, you automatically enter a relaxed state of
+        body and mind. And each time you hypnotize yourself, you go deeper than
+        before. I pace slowly, talk slowly, pause, notice, name and be curious
+		I love myself, I love my body, I take care of myself, I'll do some gentle yoga
+		I take note of any discomfort in the body and relax that body, I remind myself to eat full meal
+		I dont give power to other peoples emotions or give control to others”
+      </em><br><br>
+
+      <strong>The Wake-Up</strong><br><br>
+
+      I will awaken from hypnosis by counting to five.<br><br>
+
+      One… beginning to awaken.<br>
+      Two… becoming aware of my surroundings.<br>
+      Three… feeling safe, satisfied, and calm.<br>
+      Four… refreshed and optimistic.<br>
+      <strong>Five… wide awake, alert, and present.</strong>
+    </p>
+  </div>
+</div>
+
+
+    <h2>Instant Hypnosis Scripts</h2>
+
+    <!-- Script 1 -->
+    <div class="hypnosis-block">
+        <button class="hypnosis-toggle">🌙 Instant Hypnosis #1 — Drop Into Calm</button>
+        <div class="hypnosis-content">
+            <p>Take a slow breath in… and as you exhale, feel your shoulders soften.<br><br>
+            As you look at a single point in front of you, notice your eyes beginning to blink… heavier… slower… relaxing all on their own.<br><br>
+            With your next breath out, imagine a gentle wave of calm moving down your body… forehead loosening… jaw relaxing… chest softening… all the way down to your feet.<br><br>
+            And the moment your eyes want to close… let them close now.<br><br>
+            As they close, your mind becomes quiet… peaceful… open.<br><br>
+            Count down gently in your mind: 3… drifting… 2… softer… 1… drop.<br><br>
+            You are now in a calm, relaxed, receptive state.</p>
+        </div>
+    </div>
+
+    <!-- Script 2 -->
+    <div class="hypnosis-block">
+        <button class="hypnosis-toggle">🌟 Instant Hypnosis #2 — Finger Snap Deepener</button>
+        <div class="hypnosis-content">
+            <p>In a moment, you will hear a simple snap sound.<br><br>
+            Before it happens, take a slow breath in…<br><br>
+            And as you exhale, imagine every muscle just letting go.<br><br>
+            Now hear the snap in your mind — snap.<br><br>
+            And instantly feel your whole body melt down into deep, warm relaxation…<br><br>
+            Like a soft weight pulling you inward… deeper… quieter… calmer.<br><br>
+            Every sound around you fades out, and your awareness turns inward.<br><br>
+            You are floating… peaceful… and deeply relaxed.</p>
+        </div>
+    </div>
+
+    <!-- Script 3 -->
+    <div class="hypnosis-block">
+        <button class="hypnosis-toggle">🌌 Instant Hypnosis #3 — Slide Into Trance</button>
+        <div class="hypnosis-content">
+            <p>Imagine standing at the top of a smooth slide… the kind you loved as a child… warm… familiar… safe.<br><br>
+            Place your hand on the side of the slide and feel it instantly calm your whole body.<br><br>
+            Sit down… feel your breath slow… feel your mind soften.<br><br>
+            Now gently push off…<br><br>
+            Sliding… slowly at first… then deeper…<br><br>
+            Every second taking you into a quieter and quieter mind…<br><br>
+            Down… down… down…<br><br>
+            Until you land softly in a warm, peaceful space inside yourself.<br><br>
+            A place where the mind is open, relaxed, and ready.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+.hypnosis-container {
+    max-width: 700px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+.hypnosis-block {
+    margin-bottom: 15px;
+}
+.hypnosis-toggle {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 6px;
+}
+.hypnosis-toggle:hover {
+    background: #444;
+}
+.hypnosis-content {
+    display: none;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    margin-top: 5px;
+    line-height: 1.6;
+}
+</style>
+
+<!-- JS -->
 <script>
-    let editingPost = null;
-
-    document.getElementById("blogForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        const title = document.getElementById("blogTitle").value;
-        const content = document.getElementById("blogContent").value;
-
-        if (title && content) {
-            const now = new Date();
-            const date = now.toLocaleDateString();
-            const time = now.toLocaleTimeString();
-            const timestamp = `Posted on ${date} at ${time}`;
-
-            // Create or update the blog post element
-            const blogPost = editingPost ? editingPost : document.createElement("li");
-            blogPost.classList.add("blog-post");
-
-            const blogTitle = document.createElement("h3");
-            blogTitle.textContent = title;
-            blogPost.appendChild(blogTitle);
-
-            const blogContent = document.createElement("p");
-            blogContent.textContent = content;
-            blogPost.appendChild(blogContent);
-
-            const postTimestamp = document.createElement("p");
-            postTimestamp.classList.add("timestamp");
-            postTimestamp.textContent = timestamp;
-            blogPost.appendChild(postTimestamp);
-
-            // Create Edit and Delete buttons
-            const editButton = document.createElement("button");
-            editButton.classList.add("edit-btn");
-            editButton.textContent = "Edit";
-            editButton.onclick = function() {
-                editPost(blogPost, title, content);
-            };
-            blogPost.appendChild(editButton);
-
-            const deleteButton = document.createElement("button");
-            deleteButton.classList.add("delete-btn");
-            deleteButton.textContent = "Delete";
-            deleteButton.onclick = function() {
-                deletePost(blogPost);
-            };
-            blogPost.appendChild(deleteButton);
-
-            if (!editingPost) {
-                document.getElementById("blogPosts").appendChild(blogPost);
-            } else {
-                // Replace the old post with updated content
-                editingPost.replaceWith(blogPost);
-            }
-
-            // Clear the form and reset editing state
-            document.getElementById("blogTitle").value = '';
-            document.getElementById("blogContent").value = '';
-            editingPost = null;
-        }
+document.querySelectorAll(".hypnosis-toggle").forEach(button => {
+    button.addEventListener("click", () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
     });
-
-    function editPost(postElement, title, content) {
-        // Set the form to the current post's content for editing
-        document.getElementById("blogTitle").value = title;
-        document.getElementById("blogContent").value = content;
-
-        // Set the post to be edited
-        editingPost = postElement;
-    }
-
-    function deletePost(postElement) {
-        // Remove the post from the blog posts section
-        postElement.remove();
-    }
+});
 </script>
 
+  <!-- ==== Values & Coping Skills Section ==== -->
+  <div class="vc-surface">
+    <div class="vc-wrap" id="values-coping">
+      <div class="vc-header">
+        <div>
+          <h2 class="vc-h1">Values & Coping Skills</h2>
+          <div class="vc-sub">A quick-reference area for daily alignment, calm, and renewal.</div>
+        </div>
+      </div>
+
+    <section id="vc-core-values">
+  <h3>Core Values</h3>
+  <div class="vc-values">
+
+    <div class="vc-value">
+      <h2>Healing & Growth</h2>
+      <small>
+        I commit to ongoing inner healing, learning from pain rather than avoiding it.
+        Growth means patience, self-compassion, and trusting that small steps matter.
+      </small>
+      <ul class="vc-list">
+        <li>Gentle self-care over self-criticism</li>
+        <li>Learning from setbacks instead of judging them</li>
+        <li>Choosing progress, not perfection</li>
+      </ul>
+    </div>
+
+    <div class="vc-value">
+      <h2>Awareness & Reflection</h2>
+      <small>
+        I slow down enough to notice my thoughts, emotions, and body signals.
+        Awareness gives me choice instead of reaction.
+      </small>
+      <ul class="vc-list">
+        <li>Pause and name what I’m feeling</li>
+        <li>Curiosity instead of fear</li>
+        <li>Reflect before responding</li>
+      </ul>
+    </div>
+
+    <div class="vc-value">
+      <h2>Discipline & Practice</h2>
+      <small>
+        I build stability through small, repeatable habits.
+        Discipline supports my freedom and well-being.
+      </small>
+      <ul class="vc-list">
+        <li>Daily routines that calm my nervous system</li>
+        <li>Consistency over intensity</li>
+        <li>Showing up even when motivation is low</li>
+      </ul>
+    </div>
+
+    <div class="vc-value">
+      <h2>Respect & Boundaries</h2>
+      <small>
+        I honor my limits and the limits of others.
+        Boundaries protect my energy, safety, and peace.
+      </small>
+      <ul class="vc-list">
+        <li>Saying no without guilt</li>
+        <li>Not absorbing others’ emotions</li>
+        <li>Choosing distance when needed</li>
+      </ul>
+    </div>
+
+    <div class="vc-value">
+      <h2>Spiritual Connection</h2>
+      <small>
+        I nurture a quiet connection to meaning, presence, and gratitude.
+        Stillness is a source of grounding and renewal.
+      </small>
+      <ul class="vc-list">
+        <li>Breath, silence, and gentle awareness</li>
+        <li>Gratitude for small moments</li>
+        <li>Trust in something larger than myself</li>
+      </ul>
+    </div>
+
+    <div class="vc-value">
+      <h2>Authenticity</h2>
+      <small>
+        I choose to be real with myself and others.
+        Honesty creates clarity, safety, and self-respect.
+      </small>
+      <ul class="vc-list">
+        <li>Speaking simply and truthfully</li>
+        <li>Letting go of people-pleasing</li>
+        <li>Living in alignment with my values</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+      <div class="vc-divider"></div>
+
+      <div class="vc-toolbar">
+        <div class="vc-search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+          <input id="vc-q" type="search" placeholder="Search coping skills…" autocomplete="off" />
+        </div>
+        <div class="vc-chips" id="vc-chips">
+          <div class="vc-chip vc-active" data-tag="all">All</div>
+          <div class="vc-chip" data-tag="calm">Calm</div>
+          <div class="vc-chip" data-tag="body">Body</div>
+          <div class="vc-chip" data-tag="focus">Focus</div>
+          <div class="vc-chip" data-tag="creative">Creative</div>
+          <div class="vc-chip" data-tag="social">Social</div>
+          <div class="vc-chip" data-tag="environment">Environment</div>
+          <div class="vc-chip" data-tag="spiritual">Spiritual</div>
+          <div class="vc-chip" data-tag="boundaries">Boundaries</div>
+          <div class="vc-chip" data-tag="quick">Quick</div>
+        </div>
+      </div>
+
+      <section id="vc-skills">
+        <h3>Coping Skills</h3>
+        <div class="vc-grid" id="vc-grid">
+          <div class="vc-card" data-tags="calm focus environment quick">
+            <h3>Quiet Focus Block</h3>
+            <p>Reduce input to settle the nervous system.</p>
+            <ul class="vc-list">
+              <li data-tags="calm focus environment quick">Noise reduction: headset/ear muffs; silent room (closet).</li>
+              <li data-tags="calm focus">Visual nature loop on a monitor (no sound).</li>
+              <li data-tags="calm focus">Cartoon/animation visuals with sound off.</li>
+              <li data-tags="calm boundaries">Avoid music + chemicals combo (known trigger).</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Calm</span><span class="vc-badge">Focus</span></div>
+          </div>
+
+          <div class="vc-card" data-tags="body calm quick">
+            <h3>Body Reset</h3>
+            <p>Gentle movement to discharge and rebalance.</p>
+            <ul class="vc-list">
+              <li data-tags="body calm quick">Qigong: 6-Dimensional Self-Healing Gongs (10–30 min).</li>
+              <li data-tags="body calm quick">7-Minute Chi (evenings).</li>
+              <li data-tags="body calm">Tai Chi forms; slow breathing with movement.</li>
+              <li data-tags="body">"Shaking"/loosening for 1–3 minutes.</li>
+              <li data-tags="body">Stationary bike or light weights (Planet Fitness).</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Body</span><span class="vc-badge">Calm</span></div>
+          </div>
+
+          <div class="vc-card" data-tags="calm focus quick">
+            <h3>Breath & Grounding</h3>
+            <p>Downshift quickly and re-orient to the present.</p>
+            <ul class="vc-list">
+              <li data-tags="calm quick">4-6 breathing (inhale 4, exhale 6) × 8–12 reps.</li>
+              <li data-tags="calm focus quick">Feet + seat check (notice contact points; soften jaw/shoulders).</li>
+              <li data-tags="calm quick">Label: “I notice ___ and I’m safe right now.”</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Quick</span><span class="vc-badge">Calm</span></div>
+          </div>
+
+          <div class="vc-card" data-tags="spiritual calm body focus">
+            <h3>Dantian Visualization (Blue Sky / Golden Light)</h3>
+            <p>Quiet imagery to center attention in the lower abdomen.</p>
+            <ul class="vc-list">
+              <li data-tags="spiritual calm">Rest hands over lower dantian; breathe softly into the belly.</li>
+              <li data-tags="spiritual calm focus">Imagine a clear blue sky or warm golden light filling the lower dantian for 3–5 minutes.</li>
+              <li data-tags="body calm">Finish with two slower exhalations and a gentle posture check.</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Spiritual</span><span class="vc-badge">Calm</span></div>
+          </div>
+
+          <div class="vc-card" data-tags="focus calm quick">
+            <h3>Journaling & Reflection</h3>
+            <p>Simple prompts to capture learning and reset.</p>
+            <ul class="vc-list">
+              <li data-tags="focus calm">Paper or keyboard—choose what feels easiest today.</li>
+              <li data-tags="focus quick">3 lines: What I feel → What I need → One tiny step.</li>
+              <li data-tags="focus">Gratitude: 3 specifics from the last 24 hours.</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Focus</span></div>
+          </div>
+
+          <div class="vc-card" data-tags="creative calm social">
+            <h3>Creative & Play</h3>
+            <p>Light, low-stakes activities that restore.</p>
+            <ul class="vc-list">
+              <li data-tags="creative calm">Crocheting, jewelry making, doodling.</li>
+              <li data-tags="creative">Cooking simple recipes; mindful chopping/stirring.</li>
+              <li data-tags="social creative">Play Fortnite with kids at low volume.</li>
+              <li data-tags="creative calm">Short reading session; timer 10–15 min.</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Creative</span><span class="vc-badge">Social</span></div>
+          </div>
+
+          <div class="vc-card" data-tags="environment calm">
+            <h3>Environment & Sensory</h3>
+            <p>Adjust surroundings to reduce overwhelm.</p>
+            <ul class="vc-list">
+              <li data-tags="environment calm">Temperature comfort: avoid too hot/humid/cold; adjust layers/fan.</li>
+              <li data-tags="environment calm">Outdoor insect/ambient noise plan (crickets): move indoors or mask.</li>
+              <li data-tags="environment focus">Lighting: softer lamp vs. overhead glare.</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Environment</span></div>
+          </div>
+
+          <div class="vc-card" data-tags="social boundaries calm quick">
+            <h3>Social & Boundaries</h3>
+            <p>Keep interactions aligned with energy levels.</p>
+            <ul class="vc-list">
+              <li data-tags="boundaries social quick">Choose shorter check-ins over long calls when taxed.</li>
+              <li data-tags="boundaries social">Use plain, respectful language; skip sarcasm when stressed.</li>
+              <li data-tags="boundaries quick">“I’m maxed out—let’s pick this up later.”</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Boundaries</span><span class="vc-badge">Social</span></div>
+          </div>
+
+          <div class="vc-card" data-tags="calm focus quick">
+            <h3>Simple Self-Talk</h3>
+            <p>Short lines you can read silently (no audio needed).</p>
+            <ul class="vc-list">
+              <li data-tags="calm quick">“I can go gently and still make progress.”</li>
+              <li data-tags="calm focus quick">“Quiet is medicine for me.”</li>
+              <li data-tags="calm quick">“One thing at a time.”</li>
+            </ul>
+            <div class="vc-tags"><span class="vc-badge">Quick</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="vc-divider"></div>
+
+      <section id="vc-routines">
+        <h3>Quick Routines</h3>
+        <div class="vc-grid">
+          <div class="vc-card" data-tags="quick calm focus">
+            <h3>1-Minute Reset</h3>
+            <ul class="vc-list">
+              <li data-tags="quick calm">4-6 breathing × 8 cycles.</li>
+              <li data-tags="quick focus">Feet + seat check; soften jaw/eyes.</li>
+            </ul>
+          </div>
+          <div class="vc-card" data-tags="quick calm body focus">
+            <h3>5-Minute Reset</h3>
+            <ul class="vc-list">
+              <li data-tags="quick body">Shake/loosen → slow neck/shoulder rolls.</li>
+              <li data-tags="quick calm">Nature visuals (silent) while breathing slow.</li>
+            </ul>
+          </div>
+          <div class="vc-card" data-tags="quick body calm">
+            <h3>15-Minute Reset</h3>
+            <ul class="vc-list">
+              <li data-tags="body calm">Qigong or Tai Chi flow (timer 15).</li>
+              <li data-tags="creative calm">Crochet/read/cook prep at easy pace.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="vc-divider"></div>
+
+      <section id="vc-notes">
+        <h3>Notes, Triggers & Red Flags</h3>
+        <div class="vc-grid">
+          <div class="vc-card" data-tags="boundaries">
+            <h3>Known Triggers</h3>
+            <ul class="vc-list">
+              <li>Music + chemicals together tends to overstimulate.</li>
+              <li>High ambient noise (e.g., crickets at night) can be agitating.</li>
+              <li>Extreme temperatures (hot/humid/cold) drain energy quickly.</li>
+            </ul>
+          </div>
+          <div class="vc-card" data-tags="boundaries calm">
+            <h3>Go-To Boundaries</h3>
+            <ul class="vc-list">
+              <li>Choose quiet over stimulation when unsure.</li>
+              <li>Protect recovery time after social or work intensity.</li>
+              <li>Use short, respectful exits from conversations when flooded.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="vc-foot">
+          <div>Last updated: <span id="vc-updated"></span></div>
+          <div class="vc-actions">
+            <button id="vc-clear" style="cursor:pointer;border:1px solid var(--vc-border);background:var(--vc-chip);color:var(--vc-text);padding:8px 12px;border-radius:10px">Reset Filters</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Values & Coping Filtering JS -->
+  <script>
+    (function(){
+      const q=document.getElementById('vc-q');
+      const chips=document.getElementById('vc-chips');
+      const grid=document.getElementById('vc-grid');
+      if(!q||!chips||!grid) return;
+      const cards=[...grid.querySelectorAll('.vc-card')];
+      const clearBtn=document.getElementById('vc-clear');
+      const updated=document.getElementById('vc-updated');
+      if(updated){updated.textContent=new Date().toLocaleString()}
+      let activeTag='all';
+      function matches(card){
+        const text=(card.innerText||'').toLowerCase();
+        const tags=(card.getAttribute('data-tags')||'');
+        const qv=(q.value||'').toLowerCase().trim();
+        const tagOk=activeTag==='all'||tags.includes(activeTag);
+        const textOk=!qv||text.includes(qv);
+        return tagOk&&textOk;
+      }
+      function apply(){
+        cards.forEach(c=>{c.style.display=matches(c)?'':'none'});
+      }
+      q.addEventListener('input',apply);
+      chips.addEventListener('click',(e)=>{
+        const el=e.target.closest('.vc-chip');
+        if(!el) return;
+        [...chips.children].forEach(c=>c.classList.remove('vc-active'));
+        el.classList.add('vc-active');
+        activeTag=el.getAttribute('data-tag');
+        localStorage.setItem('vc_filter',activeTag);
+        apply();
+      });
+      if(clearBtn){
+        clearBtn.addEventListener('click',()=>{
+          q.value='';
+          activeTag='all';
+          [...chips.children].forEach(c=>c.classList.toggle('vc-active',c.getAttribute('data-tag')==='all'));
+          apply();
+        });
+      }
+      const saved=localStorage.getItem('vc_filter');
+      if(saved){
+        const chip=chips.querySelector(`[data-tag="${saved}"]`);
+        if(chip){
+          [...chips.children].forEach(c=>c.classList.remove('vc-active'));
+          chip.classList.add('vc-active');
+          activeTag=saved;
+        }
+      }
+      apply();
+    })();
+  </script>
 </body>
 </html>
