@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog with Edit and Delete</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Add a stylesheet -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .blog-entry-form {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .blog-entry-form input, .blog-entry-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .blog-entry-form button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .blog-entry-form button:hover {
+            background-color: #555;
+        }
+        .blog-posts {
+            list-style-type: none;
+            padding: 0;
+        }
+        .blog-post {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post h3 {
+            margin-top: 0;
+        }
+        .blog-post p {
+            color: #555;
+        }
+        .timestamp {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 10px;
+        }
+        .edit-btn, .delete-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .edit-btn:hover {
+            background-color: #45a049;
+        }
+        .delete-btn {
+            background-color: #f44336;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+		nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+    <header>
+        <h1>Welcome to My Blog</h1>
+        <p>Sharing thoughts, experiences, and insights</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="http://daddyscomputer/">Home</a>
+        <a href="http://daddyscomputer/mindfulness.htm"">Mindfulness</a>
+        <a href="http://daddyscomputer/cards.html">Cards</a>
+        <a href="http://daddyscomputer/tts.html">Text to Speech</a>
+	 </nav>
+
+<header>
+    <h1>My Blog</h1>
+</header>
+
+<div class="content">
+    <section class="blog-entry-form">
+        <h2>Create a New Post</h2>
+        <form id="blogForm">
+            <input type="text" id="blogTitle" placeholder="Blog Title" required>
+            <textarea id="blogContent" rows="5" placeholder="Write your blog here..." required></textarea>
+            <button type="submit">Post Blog</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Recent Posts</h2>
+        <ul class="blog-posts" id="blogPosts">
+            <!-- Blog posts will be listed here -->
+        </ul>
+    </section>
+</div>
+
+<script>
+    let editingPost = null;
+
+    document.getElementById("blogForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const title = document.getElementById("blogTitle").value;
+        const content = document.getElementById("blogContent").value;
+
+        if (title && content) {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+            const timestamp = `Posted on ${date} at ${time}`;
+
+            // Create or update the blog post element
+            const blogPost = editingPost ? editingPost : document.createElement("li");
+            blogPost.classList.add("blog-post");
+
+            const blogTitle = document.createElement("h3");
+            blogTitle.textContent = title;
+            blogPost.appendChild(blogTitle);
+
+            const blogContent = document.createElement("p");
+            blogContent.textContent = content;
+            blogPost.appendChild(blogContent);
+
+            const postTimestamp = document.createElement("p");
+            postTimestamp.classList.add("timestamp");
+            postTimestamp.textContent = timestamp;
+            blogPost.appendChild(postTimestamp);
+
+            // Create Edit and Delete buttons
+            const editButton = document.createElement("button");
+            editButton.classList.add("edit-btn");
+            editButton.textContent = "Edit";
+            editButton.onclick = function() {
+                editPost(blogPost, title, content);
+            };
+            blogPost.appendChild(editButton);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("delete-btn");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = function() {
+                deletePost(blogPost);
+            };
+            blogPost.appendChild(deleteButton);
+
+            if (!editingPost) {
+                document.getElementById("blogPosts").appendChild(blogPost);
+            } else {
+                // Replace the old post with updated content
+                editingPost.replaceWith(blogPost);
+            }
+
+            // Clear the form and reset editing state
+            document.getElementById("blogTitle").value = '';
+            document.getElementById("blogContent").value = '';
+            editingPost = null;
+        }
+    });
+
+    function editPost(postElement, title, content) {
+        // Set the form to the current post's content for editing
+        document.getElementById("blogTitle").value = title;
+        document.getElementById("blogContent").value = content;
+
+        // Set the post to be edited
+        editingPost = postElement;
+    }
+
+    function deletePost(postElement) {
+        // Remove the post from the blog posts section
+        postElement.remove();
+    }
+</script>
+
+</body>
+</html>
