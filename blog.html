@@ -7,6 +7,40 @@
 
 <style>
 
+.video-library{
+margin-top:40px;
+}
+
+.video-intro{
+color:#666;
+margin-bottom:20px;
+}
+
+.video-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.video-card{
+background:white;
+padding:15px;
+border-radius:8px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.video-card h3{
+margin-top:0;
+font-size:16px;
+}
+
+.video-card iframe{
+width:100%;
+height:200px;
+border:none;
+border-radius:6px;
+}
+
 body{
 font-family:Arial,Helvetica,sans-serif;
 margin:0;
@@ -131,29 +165,38 @@ border:1px solid #374151;
 <p>Sharing thoughts, experiences, and insights</p>
 </header>
 
-<div class="video-container">
-<iframe
-width="100%"
-height="500"
-src="https://www.youtube.com/embed/HHKwnUa3txo?rel=0"
-title="Zootopia Sloth Scene"
-frameborder="0"
-allowfullscreen>
-</iframe>
+<section class="video-library">
+
+<h2>🌿 Regulation Video Library</h2>
+<p class="video-intro">
+Short practices for calming the nervous system, slowing the mind, and restoring focus.
+</p>
+
+<div class="video-grid">
+
+<div class="video-card">
+<h3>Zootopia Slow Living</h3>
+<iframe src="https://www.youtube.com/embed/HHKwnUa3txo" allowfullscreen></iframe>
 </div>
 
-<div class="video-container">
-<iframe
-width="100%"
-height="500"
-src="https://www.youtube.com/embed/WmhCqjc6-Mo"
-title="Vagus nerve hacks"
-frameborder="0"
-allowfullscreen>
-</iframe>
+<div class="video-card">
+<h3>Vagus Nerve Reset</h3>
+<iframe src="https://www.youtube.com/embed/WmhCqjc6-Mo" allowfullscreen></iframe>
 </div>
 
+<div class="video-card">
+<h3>Butterfly Hug Technique</h3>
+<iframe src="https://www.youtube.com/embed/H9Hnisaqlns" allowfullscreen></iframe>
+</div>
 
+<div class="video-card">
+<h3>Belly Breathing Exercise</h3>
+<iframe src="https://www.youtube.com/embed/RiMb2Bw4Ae8" allowfullscreen></iframe>
+</div>
+
+</div>
+
+</section>
 
 <div class="project-container">
 
