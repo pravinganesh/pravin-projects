@@ -1,240 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pravin Ganesh | Enterprise Systems Analyst</title>
-  <meta name="description" content="Pravin Ganesh – Enterprise Systems Analyst with 25+ years of experience supporting healthcare, life safety, security, and mission-critical platforms."/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f2f5;
-      color: #333;
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-
-    header {
-      background-color: #1f2a38;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    header h1 { margin-bottom: 0.5rem; font-size: 2.2rem; }
-    header p { color: #4fc3f7; font-weight: bold; margin-top: 0.2rem; }
-
-    section {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 2rem;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #1f2a38;
-      border-bottom: 2px solid #4fc3f7;
-      display: inline-block;
-      padding-bottom: 0.2rem;
-    }
-
-    .card {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      margin-bottom: 1.5rem;
-    }
-
-    .highlight {
-      font-weight: bold;
-      color: #4fc3f7;
-    }
-
-    .collapsible {
-      background-color: #1f2a38;
-      color: #fff;
-      cursor: pointer;
-      padding: 0.8rem 1rem;
-      width: 100%;
-      border: none;
-      text-align: left;
-      font-size: 1.1rem;
-      border-radius: 6px;
-      margin-top: 0.5rem;
-      transition: background-color 0.3s;
-    }
-
-    .collapsible:hover {
-      background-color: #4fc3f7;
-      color: #1f2a38;
-    }
-
-    .content {
-      padding: 1rem;
-      display: none;
-      background-color: #f9f9f9;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem 0;
-      background-color: #1f2a38;
-      color: #fff;
-      margin-top: 2rem;
-      font-size: 0.9em;
-    }
-
-    @media(max-width:768px){
-      header h1 { font-size: 1.8rem; }
-      section { padding: 1.5rem 1rem; }
-    }
+    body, h1, h2, p, ul, li, a { margin:0; padding:0; font-family: Arial, sans-serif; }
+    body { line-height:1.6; color:#333; background-color:#f5f5f5; }
+    header { background-color:#2c3e50; color:white; padding:1rem; text-align:center; }
+    nav a { color:white; margin:0 1rem; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+    section { padding:4rem 2rem; max-width:900px; margin:auto; background-color:white; margin-bottom:2rem; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    h1, h2 { margin-bottom:1rem; }
+    ul { list-style-type: disc; padding-left:1.5rem; }
+    a.contact-link { color:#2980b9; text-decoration:none; font-weight:bold; }
+    a.contact-link:hover { text-decoration:underline; }
+    footer { text-align:center; padding:1rem; background-color:#2c3e50; color:white; }
+    li { margin-bottom:0.8rem; }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1>Pravin Ganesh</h1>
-  <p>Enterprise Systems Analyst · Life Cycle Ownership · Healthcare & Critical Systems</p>
-</header>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section>
-  <h2>Professional Summary</h2>
-  <div class="card">
-    <p>Enterprise Systems Analyst with over <span class="highlight">25+ years of IT experience</span> across healthcare, finance, government, aerospace, and large enterprise environments.</p>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Enterprise Systems Analyst · Life Cycle Ownership · Healthcare & Critical Systems - Check out my detailed bio <a href="about.html">here</a>.</p>
+  </section>
 
-    <p>Provide lifecycle governance and operational oversight for an integrated healthcare portfolio spanning <span class="highlight">Tier 0–3 mission-critical systems</span>, supporting approximately <span class="highlight">300 on-premise production servers</span> in addition to numerous cloud SaaS platforms.</p>
+  <!-- Projects Section -->
+<section id="projects">
+  <h2>Personal & Independent Projects</h2>
 
-    <p>Expertise includes enterprise security systems, life-safety platforms, clinical applications, compliance technologies, and infrastructure alignment with disaster recovery, patch management, vulnerability remediation, and vendor coordination.</p>
-  </div>
+  <!-- AI / Machine Learning Projects -->
+  <h3>AI / Machine Learning Projects</h3>
+  <ul>
+    <li>
+      <strong>Flower Classification – Deep Learning (Udacity Nanodegree):</strong>
+      Built a deep learning image classifier capable of identifying 102 flower species using transfer learning with a pre-trained VGG network and custom classifier layers. Implemented full machine learning workflows including data preprocessing, training, validation, testing, and inference. Achieved 87%+ validation accuracy and designed the model for potential deployment in real-world applications such as mobile-based image recognition.
+    </li>
+
+    <li>
+      <strong>Data Science & Data Wrangling Projects (Udacity Nanodegree):</strong>
+      Completed multiple Python-based projects focused on cleaning, transforming, and analyzing complex datasets. Conducted exploratory data analysis (EDA), resolved missing or inconsistent data issues, and prepared datasets for modeling and visualization. Generated actionable insights using industry-standard data tools.
+    </li>
+
+    <li>
+      <strong>AI-Driven Automated Messaging Platform:</strong>
+      Developed a Python-based web application that generates AI-powered messages and automates scheduled delivery via Gmail integration. Demonstrated practical implementation of AI APIs, workflow automation, and web-based scheduling systems.
+    </li>
+
+    <li>
+      <strong>AI Interactive Storytelling Platform (Purdue):</strong>
+      Designed and implemented an AI-assisted storytelling system leveraging ChatGPT for dynamic narrative generation. Users collaboratively influence plot direction and character decisions while AI generates context-aware responses in real time. Emphasized structured prompt design, iterative refinement, and branching story paths to create engaging multi-outcome experiences.
+    </li>
+	<li>
+  <strong>AI-Powered HR Assistant for Nestlé (Course-End Project):</strong>
+  Developed a conversational AI chatbot to improve the operational efficiency of Nestlé’s Human Resources department. 
+  Leveraged Retrieval-Augmented Generation (RAG) with OpenAI’s GPT-3.5 Turbo model to answer questions strictly based on Nestlé’s HR policy document. 
+  Implemented full workflow including PDF document loading, text chunking, vector embeddings stored in ChromaDB, and a user-friendly Gradio interface. 
+  Ensured accuracy and reliability with structured prompts, deterministic model responses, and fallback messaging when information is unavailable. 
+  The system enables HR staff to quickly access policy information, demonstrating practical applications of NLP, vector databases, and conversational AI deployment.
+   </li>
+	
+  </ul>
+
+  <!-- Non-AI / Software & Web Projects -->
+  <h3>Non-AI / Software & Web Projects</h3>
+  <ul>
+    <li>
+      <strong>Internal Infrastructure & Access Management Portal:</strong>
+      Developed and deployed an IIS-hosted enterprise web portal centralizing vulnerability reporting (ServiceNow), Teams/Active Directory access management, server uptime tracking, hotfix monitoring, SDLC documentation, and product metrics. Automated backend processes using PowerShell and Windows Task Scheduler.
+    </li>
+
+    <li>
+      <strong>Systems & Access Validation Utility:</strong>
+      Created a terminal-based batch tool to validate vendor and user access across enterprise servers. Automated checks for server specifications, uptime, hardware configuration, logged-in users, Active Directory group memberships, and credential verification.
+    </li>
+
+    <li>
+      <strong>Wellness & Mindfulness Blog Platform:</strong>
+      Built a DBT-focused content management platform hosted on IIS, featuring structured content organization and custom frontend styling for accessibility and clarity.
+    </li>
+
+    <li>
+      <strong>Personal Expense Management System (Purdue):</strong>
+      Developed a Python-based personal finance tracker enabling users to log expenses, categorize spending, set monthly budgets, and review historical data. Implemented persistent file storage and a user-friendly, menu-driven command-line interface.
+    </li>
+  </ul>
 </section>
 
-<section>
-  <h2>Enterprise Infrastructure Footprint</h2>
-  <div class="card">
-    <ul>
-      <li>~300 On-Premise Production Servers (Windows Server Enterprise Environment)</li>
-      <li>Tier 0 Life Safety & Mass Notification Systems</li>
-      <li>Tier 1 Critical Communications & Access Control</li>
-      <li>Tier 2 Compliance, Privacy & Revenue Integrity Systems</li>
-      <li>Tier 3 Operational & Facilities Platforms</li>
-	  <li>Vulnerability reports for all servers and apps, graphs and presentation</li>
-      <li>Active Directory / Entra ID Authentication & SSO</li>
-      <li>BIA, DRP, DRE -Disaster Recovery Tier Governance & Testing</li>
-      <li>Vendor Management & Upgrade Coordination</li>
-	  <li>Managed Service Partners (Deloitte) Team education, mentoring and process improvements </li>
-	  <li>ServiceNow Asset Management - CMDB and KB articles</li>
-      <li>Enterprise Integration (API, SFTP, HL7, Identity, Access Control)</li>
-    </ul>
-  </div>
-</section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>You can reach me at <a class="contact-link" href="mailto:pravin.dyl@gmail.com">pravin.dyl@gmail.com</a></p>
+    <p>Or connect on <a class="contact-link" href="https://www.linkedin.com/in/pravin-ganesh-035a82380/" target="_blank">LinkedIn</a> / <a class="contact-link" href="https://pravinganesh.github.io/pravin-projects/" target="_blank">GitHub</a></p>
+  </section>
 
-<section>
-  <h2>Healthcare – Enterprise Application Portfolio</h2>
-
-  <button class="collapsible">Patient Services & Clinical Systems</button>
-  <div class="content">
-    <ul>
-      <li>eRL / RL6 – Patient Incident & Claims Tracking (Tier 2)</li>
-      <li>JCR Tracers with AMP – Regulatory & Accreditation Rounding (Tier 2)</li>
-      <li>MDaudit – Revenue Integrity & Billing Compliance (Tier 2)</li>
-      <li>NaviCare Nurse Call – Bedside Communication Platform (Tier 3)</li>
-      <li>SwipeSense – Hand Hygiene & Asset Tracking (Tier 2)</li>
-      <li>VSurvey (Verge VSuite) – Grievance & Risk Management (Tier 3)</li>
-    </ul>
-  </div>
-
-  <button class="collapsible">Public Safety & Security Systems</button>
-  <div class="content">
-    <ul>
-      <li>Alertus – Enterprise Fire Panel Monitoring (Tier 1)</li>
-      <li>Everbridge – Unified Critical Communications (Tier 0 / Tier 1)</li>
-      <li>Avtec Scout Dispatch Console – SOC Dispatch Platform (Tier 3)</li>
-      <li>BlueDiamond – Mobile Badge Access Integration (Tier 3)</li>
-      <li>HUGS Infant Security / MobileView – Infant Protection System (Tier 1)</li>
-      <li>CCure9000 – Enterprise Badge & Door Access Control (Tier 1)</li>
-      <li>S2 Connect – Corporate Access Control & Integrations (Tier 2)</li>
-      <li>IrisID – Biometric Identity Authentication (Tier 2)</li>
-    </ul>
-  </div>
-
-  <button class="collapsible">Facilities & Engineering Systems</button>
-  <div class="content">
-    <ul>
-      <li>Apogee (Siemens Insight) – Building Automation System (Tier 3)</li>
-      <li>FAST-PASS – Visitor Management & ID Scanning (Tier 3)</li>
-      <li>GeoSense – Clinical Engineering Asset Tracking (Tier 3)</li>
-      <li>INTRAX RTLS – Real-Time Location System (Tier 3)</li>
-      <li>WorxHub – Facilities & Plant Engineering Work Management (Tier 3)</li>
-    </ul>
-  </div>
-
-  <button class="collapsible">Legal, Compliance & Risk Systems</button>
-  <div class="content">
-    <ul>
-      <li>AIA Contracts – Construction Contract Management (Tier 3)</li>
-      <li>Legal Tracker – Legal Matter & Spend Management (Tier 3)</li>
-      <li>Policy & Procedure Manager – Enterprise Policy Governance (Tier 1)</li>
-      <li>Protenus – HIPAA Privacy Monitoring & EHR Access Analytics (Tier 2)</li>
-      <li>TeamMate AM – Audit Workflow Automation (Tier 3)</li>
-    </ul>
-  </div>
-
-  <button class="collapsible">HR & Vendor Systems</button>
-  <div class="content">
-    <ul>
-      <li>Green Security – Vendor Credentialing & Onboarding (Tier 3)</li>
-      <li>Hospitality Housekeeper – Guest Tracking Platform (Tier 2)</li>
-    </ul>
-  </div>
-
-</section>
-
-<section>
-  <h2>Skills Matrix</h2>
-  <div class="card">
-    <ul>
-      <li><strong>Methodologies:</strong> Six Sigma (DMAIC), Agile-Scrum, Waterfall, Kanban</li>
-      <li><strong>Servers:</strong> Windows Server, Linux, IIS, Apache, Tomcat, WebSphere</li>
-      <li><strong>Databases:</strong> Oracle, SQL Server, MySQL, Sybase</li>
-      <li><strong>Architecture:</strong> .NET, J2EE, SaaS, AWS, Azure</li>
-      <li><strong>Tools:</strong> ServiceNow, JIRA, GitHub, Visio, Rational Suite</li>
-      <li><strong>Identity & Security:</strong> Active Directory, Entra ID, SSO, Access Control, Biometrics</li>
-      <li><strong>Mainframe:</strong> IMS, CICS, DB2, VSAM</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <h2>Licenses & Certifications</h2>
-  <div class="card">
-    <ul>
-      <li>Advanced Generative AI Models and Architecture – Simplilearn & Purdue (2026)</li>
-      <li>AI Programming with Python Nano Degree – Udacity (2026)</li>
-      <li>Microsoft Certifications – Security, Cloud & OS (2026)</li>
-      <li>IBM Software Engineering Certification (2026)</li>
-      <li>Certified Software Test Engineer – QAI (2000)</li>
-    </ul>
-  </div>
-</section>
-
-<footer>
-  &copy; 2026 Pravin Ganesh
-</footer>
-
-<script>
-  const coll = document.querySelectorAll(".collapsible");
-  coll.forEach(button => {
-    button.addEventListener("click", () => {
-      const content = button.nextElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    });
-  });
-</script>
+  <footer>
+    &copy; 2026 Pravin Ganesh
+  </footer>
 
 </body>
 </html>
