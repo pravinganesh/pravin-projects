@@ -1,0 +1,319 @@
+
+<h2 class="sr-only">Summary of tools, libraries, and frameworks across 4 Udacity nanodegrees</h2>
+
+<style>
+  .nd-wrap { padding: 1rem 0; }
+  .nd-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 1.25rem; overflow: hidden; }
+  .nd-header { padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 10px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .nd-badge { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: var(--border-radius-md); }
+  .nd-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+  .nd-body { padding: 1rem 1.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+  .nd-section h4 { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-secondary); margin: 0 0 8px; }
+  .tag-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag { font-size: 12px; padding: 3px 9px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); background: var(--color-background-secondary); }
+  .tag.tool { background: #E6F1FB; color: #0C447C; border-color: #B5D4F4; }
+  .tag.lib { background: #EAF3DE; color: #27500A; border-color: #C0DD97; }
+  .tag.concept { background: #EEEDFE; color: #3C3489; border-color: #CECBF6; }
+  .tag.framework { background: #FAEEDA; color: #633806; border-color: #FAC775; }
+  @media (prefers-color-scheme: dark) {
+    .tag.tool { background: #0C447C; color: #B5D4F4; border-color: #185FA5; }
+    .tag.lib { background: #27500A; color: #C0DD97; border-color: #3B6D11; }
+    .tag.concept { background: #3C3489; color: #CECBF6; border-color: #534AB7; }
+    .tag.framework { background: #633806; color: #FAC775; border-color: #854F0B; }
+  }
+  .proj-list { list-style: none; padding: 0; margin: 0; }
+  .proj-list li { font-size: 12px; color: var(--color-text-secondary); padding: 2px 0; display: flex; align-items: flex-start; gap: 6px; }
+  .proj-list li::before { content: "›"; color: var(--color-text-tertiary); flex-shrink: 0; }
+  .nd-footer { padding: 0.5rem 1.25rem 0.75rem; border-top: 0.5px solid var(--color-border-tertiary); display: flex; gap: 1rem; flex-wrap: wrap; }
+  .stat { font-size: 12px; color: var(--color-text-secondary); }
+  .stat strong { color: var(--color-text-primary); font-weight: 500; }
+</style>
+
+<div class="nd-wrap">
+
+  <!-- ND 1 -->
+  <div class="nd-card">
+    <div class="nd-header">
+      <span class="nd-badge tag tool">ND 1</span>
+      <p class="nd-title">Statistics for Data Analysis</p>
+    </div>
+    <div class="nd-body">
+      <div class="nd-section">
+        <h4>Projects (4)</h4>
+        <ul class="proj-list">
+          <li>Descriptive stats — sleep &amp; health data</li>
+          <li>Probability — NBA Steph Curry shots</li>
+          <li>Linear regression — salary predictors</li>
+          <li>A/B testing — e-commerce conversion</li>
+        </ul>
+      </div>
+      <div class="nd-section">
+        <h4>Tools &amp; software</h4>
+        <div class="tag-wrap">
+          <span class="tag tool">Jupyter Notebook</span>
+          <span class="tag tool">Google Sheets</span>
+          <span class="tag tool">Google Slides</span>
+          <span class="tag tool">Microsoft Excel</span>
+          <span class="tag tool">PowerPoint</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Libraries</h4>
+        <div class="tag-wrap">
+          <span class="tag lib">pandas</span>
+          <span class="tag lib">NumPy</span>
+          <span class="tag lib">matplotlib</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Statistical concepts</h4>
+        <div class="tag-wrap">
+          <span class="tag concept">Descriptive statistics</span>
+          <span class="tag concept">Probability</span>
+          <span class="tag concept">Binomial distribution</span>
+          <span class="tag concept">Bayes' theorem</span>
+          <span class="tag concept">Conditional probability</span>
+          <span class="tag concept">Linear regression</span>
+          <span class="tag concept">A/B testing</span>
+          <span class="tag concept">Hypothesis testing</span>
+          <span class="tag concept">p-values</span>
+          <span class="tag concept">Logistic regression</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Datasets</h4>
+        <div class="tag-wrap">
+          <span class="tag">Sleep Health &amp; Lifestyle (Kaggle)</span>
+          <span class="tag">NBA Player Shot 2022–23 (Kaggle)</span>
+          <span class="tag">Employee Salary CSV</span>
+          <span class="tag">E-commerce A/B test CSV</span>
+        </div>
+      </div>
+    </div>
+    <div class="nd-footer">
+      <span class="stat"><strong>4</strong> projects</span>
+      <span class="stat"><strong>Output:</strong> Jupyter notebooks + slide deck presentations</span>
+    </div>
+  </div>
+
+  <!-- ND 2 -->
+  <div class="nd-card">
+    <div class="nd-header">
+      <span class="nd-badge tag tool">ND 2</span>
+      <p class="nd-title">AI Programming with Python</p>
+    </div>
+    <div class="nd-body">
+      <div class="nd-section">
+        <h4>Project (1)</h4>
+        <ul class="proj-list">
+          <li>Image classifier — 102 flower species (Oxford dataset)</li>
+          <li>CLI app: train.py + predict.py</li>
+        </ul>
+      </div>
+      <div class="nd-section">
+        <h4>Frameworks</h4>
+        <div class="tag-wrap">
+          <span class="tag framework">PyTorch</span>
+          <span class="tag framework">torchvision</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Libraries</h4>
+        <div class="tag-wrap">
+          <span class="tag lib">NumPy</span>
+          <span class="tag lib">matplotlib</span>
+          <span class="tag lib">PIL / Pillow</span>
+          <span class="tag lib">scipy</span>
+          <span class="tag lib">json</span>
+          <span class="tag lib">os / sys</span>
+          <span class="tag lib">argparse</span>
+          <span class="tag lib">collections</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Tools &amp; concepts</h4>
+        <div class="tag-wrap">
+          <span class="tag tool">Jupyter Notebook</span>
+          <span class="tag tool">GPU / CUDA</span>
+          <span class="tag concept">Transfer learning</span>
+          <span class="tag concept">VGG / DenseNet / ResNet</span>
+          <span class="tag concept">CNN</span>
+          <span class="tag concept">Model checkpointing</span>
+          <span class="tag concept">Image transforms</span>
+          <span class="tag concept">DataLoader / ImageFolder</span>
+          <span class="tag concept">Softmax / top-K prediction</span>
+          <span class="tag concept">CLI with argparse</span>
+        </div>
+      </div>
+    </div>
+    <div class="nd-footer">
+      <span class="stat"><strong>1</strong> project</span>
+      <span class="stat"><strong>Output:</strong> Jupyter notebook + Python CLI scripts</span>
+    </div>
+  </div>
+
+  <!-- ND 3 -->
+  <div class="nd-card">
+    <div class="nd-header">
+      <span class="nd-badge tag tool">ND 3</span>
+      <p class="nd-title">Data Analyst</p>
+    </div>
+    <div class="nd-body">
+      <div class="nd-section">
+        <h4>Projects (2)</h4>
+        <ul class="proj-list">
+          <li>Investigate a Dataset (EDA — TMDb, No-show appointments, or FBI gun data)</li>
+          <li>Data Wrangling project (gather, assess, clean)</li>
+        </ul>
+      </div>
+      <div class="nd-section">
+        <h4>Libraries</h4>
+        <div class="tag-wrap">
+          <span class="tag lib">pandas</span>
+          <span class="tag lib">NumPy</span>
+          <span class="tag lib">matplotlib</span>
+          <span class="tag lib">seaborn</span>
+          <span class="tag lib">requests</span>
+          <span class="tag lib">json</span>
+          <span class="tag lib">os / re / csv</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Tools</h4>
+        <div class="tag-wrap">
+          <span class="tag tool">Jupyter Notebook</span>
+          <span class="tag tool">REST APIs</span>
+          <span class="tag tool">CSV / JSON files</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Concepts</h4>
+        <div class="tag-wrap">
+          <span class="tag concept">EDA</span>
+          <span class="tag concept">Data wrangling</span>
+          <span class="tag concept">Data gathering</span>
+          <span class="tag concept">Data assessment &amp; cleaning</span>
+          <span class="tag concept">groupby / pivot / merge</span>
+          <span class="tag concept">Data visualization</span>
+          <span class="tag concept">Missing data handling</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Datasets</h4>
+        <div class="tag-wrap">
+          <span class="tag">TMDb Movie Data</span>
+          <span class="tag">No-show Appointments (Brazil)</span>
+          <span class="tag">FBI Gun Data + US Census</span>
+        </div>
+      </div>
+    </div>
+    <div class="nd-footer">
+      <span class="stat"><strong>2</strong> projects</span>
+      <span class="stat"><strong>Output:</strong> Jupyter notebooks exported as HTML</span>
+    </div>
+  </div>
+
+  <!-- ND 4 -->
+  <div class="nd-card">
+    <div class="nd-header">
+      <span class="nd-badge tag tool">ND 4</span>
+      <p class="nd-title">Generative AI</p>
+    </div>
+    <div class="nd-body">
+      <div class="nd-section">
+        <h4>Projects (2)</h4>
+        <ul class="proj-list">
+          <li>NASA Intelligence Chat — RAG Q&amp;A system (Apollo 11, 13, Challenger)</li>
+          <li>ACME Content Moderation — multimodal AI moderation system</li>
+        </ul>
+      </div>
+      <div class="nd-section">
+        <h4>AI / LLM</h4>
+        <div class="tag-wrap">
+          <span class="tag framework">OpenAI API (GPT-3.5 / GPT-4)</span>
+          <span class="tag framework">Google Gemini API</span>
+          <span class="tag framework">Pydantic AI</span>
+          <span class="tag framework">vLLM</span>
+          <span class="tag framework">transformers (HuggingFace)</span>
+          <span class="tag framework">unsloth</span>
+          <span class="tag framework">PEFT / TRL</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>RAG &amp; vector DB</h4>
+        <div class="tag-wrap">
+          <span class="tag lib">ChromaDB</span>
+          <span class="tag lib">OpenAI Embeddings</span>
+          <span class="tag lib">RAGAS</span>
+          <span class="tag concept">Semantic search</span>
+          <span class="tag concept">Chunking strategy</span>
+          <span class="tag concept">Context construction</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Frameworks &amp; backend</h4>
+        <div class="tag-wrap">
+          <span class="tag framework">FastAPI</span>
+          <span class="tag framework">Gradio</span>
+          <span class="tag framework">Streamlit</span>
+          <span class="tag framework">Pydantic</span>
+          <span class="tag framework">uvicorn</span>
+          <span class="tag framework">Starlette</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Observability &amp; eval</h4>
+        <div class="tag-wrap">
+          <span class="tag tool">Arize Phoenix</span>
+          <span class="tag tool">OpenTelemetry</span>
+          <span class="tag concept">Tracing / spans</span>
+          <span class="tag concept">RAGAS metrics</span>
+          <span class="tag concept">Faithfulness</span>
+          <span class="tag concept">Answer relevancy</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Deep learning / other libs</h4>
+        <div class="tag-wrap">
+          <span class="tag lib">PyTorch</span>
+          <span class="tag lib">torchvision</span>
+          <span class="tag lib">torchaudio</span>
+          <span class="tag lib">diffusers</span>
+          <span class="tag lib">accelerate</span>
+          <span class="tag lib">tiktoken</span>
+          <span class="tag lib">tokenizers</span>
+          <span class="tag lib">safetensors</span>
+          <span class="tag lib">numpy</span>
+          <span class="tag lib">pandas</span>
+          <span class="tag lib">scipy</span>
+          <span class="tag lib">Pillow</span>
+          <span class="tag lib">opencv-python</span>
+          <span class="tag lib">soundfile</span>
+          <span class="tag lib">python-dotenv</span>
+          <span class="tag lib">httpx / aiohttp</span>
+          <span class="tag lib">ray</span>
+        </div>
+      </div>
+      <div class="nd-section">
+        <h4>Concepts</h4>
+        <div class="tag-wrap">
+          <span class="tag concept">RAG (Retrieval-Augmented Generation)</span>
+          <span class="tag concept">LLM agents</span>
+          <span class="tag concept">Multimodal AI</span>
+          <span class="tag concept">Content moderation</span>
+          <span class="tag concept">PII detection</span>
+          <span class="tag concept">Prompt engineering</span>
+          <span class="tag concept">Conversation history management</span>
+          <span class="tag concept">REST API design</span>
+          <span class="tag concept">Fine-tuning (PEFT/LoRA)</span>
+          <span class="tag concept">Quantization (bitsandbytes)</span>
+        </div>
+      </div>
+    </div>
+    <div class="nd-footer">
+      <span class="stat"><strong>2</strong> projects</span>
+      <span class="stat"><strong>Output:</strong> Full Python applications (CLI + web UI + REST API)</span>
+    </div>
+  </div>
+
+</div>
